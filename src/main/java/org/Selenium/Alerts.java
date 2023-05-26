@@ -1,14 +1,12 @@
-package org.example;
+package org.Selenium;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import javax.sound.midi.Soundbank;
-
 public class Alerts {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\2269280\\Downloads\\chromedriver_win32 (3)\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\2269280\\Downloads\\chromedriver_win32\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://www.letcode.in");
         driver.manage().window().maximize();

@@ -1,4 +1,4 @@
-package org.example;
+package org.Selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,6 +8,7 @@ import java.util.List;
 
 public class WebTableRowsAndColumn {
     public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\2269280\\Downloads\\chromedriver_win32\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://letcode.in/table");
         WebElement ele=driver.findElement(By.cssSelector("table#simpletable>tbody"));

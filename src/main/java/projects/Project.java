@@ -1,0 +1,108 @@
+package projects;
+
+
+//package declaration
+
+
+
+
+//import statements
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+//creating class
+
+public class Project {
+
+// elements declaration
+
+    static WebDriver driver;
+
+//invoking chrome browser
+
+    public static void chromeBrowser()
+    {
+        System.setProperty("webdriver.chrome.driver", "C:\\Driver\\chromedriver.exe");
+        driver = new ChromeDriver();
+    }
+
+//invoking edge browser
+
+    public static void edgeBrowser()
+    {
+        System.setProperty("webdriver.edge.driver","C:\\Users\\Lenovo\\eclipse-workspace\\program\\driverrr\\msedgedriver.exe");
+        driver = new EdgeDriver();
+
+    }
+
+//main function
+
+    public static void main (String[] arg) throws InterruptedException,
+            IOException {
+        System.out.println("select your browser 1.chrome 2.edge");
+        Scanner sc=new Scanner(System.in);
+
+//selecting browser
+
+        int choice=sc.nextInt();
+        if(choice==1)
+            chromeBrowser();
+        else
+            edgeBrowser();
+
+//navigating to the url
+
+        driver.get("https://www.shopify.in/");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+//locate and click start free trial
+
+        //driver.findElement(By.xpath("//div[@class='hidden sm:block']//button[@name='button'][normalize-space()='Start free trial']"));
+        driver.findElement(By.tagName("button")).click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+//enter email address
+
+        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/form/div[1]/div/label/input")).sendKeys("ABC123@gmail.com");
+
+//enter password
+
+        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/form/div[2]/div/label/input")).sendKeys("ABC12345");
+
+//locate and click create store
+
+        driver.findElement(By.xpath("//button[@name='button']")).click();
+        Thread.sleep(2000);
+
+//verifying error message
+
+        boolean Error =driver.getPageSource().contains("Please enter a store name");
+        boolean checkLogo = false;
+        if(!checkLogo)
+        {
+            System.out.println("Error message is displaying");
+        }
+        else
+        {
+            System.out.println("Error message is not displaying");
+
+        }
+
+//quitting the browser
+
+        driver.quit();
+
+    }
+
+}
+
+
+

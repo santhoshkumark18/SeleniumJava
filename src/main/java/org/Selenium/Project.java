@@ -1,4 +1,4 @@
-package org.example;
+package org.Selenium;
 
 
 //package declaration

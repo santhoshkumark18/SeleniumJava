@@ -1,5 +1,6 @@
-package org.example;
+package org.Selenium;
 
+import org.apache.http.util.Asserts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,5 +16,6 @@ public class Frames {
         driver.findElement(By.name("email")).sendKeys("santhoshinrealife@gmail.com");
         driver.switchTo().defaultContent();
         driver.findElement(By.linkText("Watch tutorial")).click();
+
     }
 }
